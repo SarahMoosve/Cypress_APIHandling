@@ -1,0 +1,11 @@
+{
+  "name": "Sarah",
+  "email": "abc@gmail.com",
+  "gender": "Female",
+  "password": "ABC123456789",
+  "DateofBirth": "1993-07-26",
+  "productName": ["Blackberry", "Nokia Edge"],
+  "SearchDeliveryLocation": "Germany",
+  "successMessage": "Success",
+  "body": "Fixtures are a great way to mock data for responses to routes"
+}
