@@ -1,5 +1,5 @@
 # Cypress_APIHandling
-In the repository I have used various ways to mock, intercept and send HTTP requests using Cypress.
+In the repository, various ways are used to mock, intercept and send HTTP requests using Cypress.
 
 ## Project Structure
 - `describe`: is a Mocha function that groups related test cases. This suite is focused on mocking HTTP request/responses.
@@ -40,7 +40,4 @@ npx cypress run --spec "path_to_project/Cypress_APIHandling/cypress/integration/
 ```
 This will run all the tests in headless mode
 
-
-Page Object Model
-The Page Object Model (POM) is a design pattern that allows for better test maintenance and reduces code duplication. A page object is created for each page of the application, and it encapsulates the page's locators and functions. By following the POM pattern, any changes in the UI can be easily managed in the page object, without having to change the test logic or step definitions.
 
