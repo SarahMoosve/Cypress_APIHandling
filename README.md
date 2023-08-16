@@ -1,13 +1,21 @@
 # Cypress_APIHandling
-This repository contains E2E tests for an e-commerce website using Cypress with the MOCHA framework. The project follows the Page Object Model (POM) design pattern, ensuring maintainability and scalability of the test suite.
+In the repository I have used various ways to mock, intercept and send HTTP requests using Cypress.
+
 ## Project Structure
-- E2E Tests:`Home.js` and `Shop.js` are present inside the integration folder that covers the end-to-end testing of the ecommerce application 
-- Page Object Model: All locators are defined in the integration>pageObject folder:
+- `describe`: is a Mocha function that groups related test cases. This suite is focused on mocking HTTP request/responses.
+- `first it block`: This test case mocks an HTTP GET request and checks the response.
+    - `cy.intercept()` -  is used to mock the HTTP GET request. When the application makes a request to the specified URL, Cypress will intercept it and respond with the provided mock data instead of the actual data from the server
+    - `cy.visit()` - after setting up the intercept, test navigates to specific URL performs the operation
+    - `cy.wait()` - waits for the intercepted request to complete.
 
-    - `HomePage.js` - Contains locators and methods for the PageName1 page.
-    - `ShopPage.js` - Contains locators and methods for the PageName2 page.
+- `second it block`: This test case intercepts an HTTP GET request and modifies the request URL before it's sent.
+    - `cy.intercept()` -  is used to intercept and modify the request. The request URL is changed to query for books by another author
+    - `cy.visit()` - test navigates to specific URL performs the operation
+    - `cy.wait()` - waits for the intercepted request to complete.
 
-- Commands: This folder contains custom cypress commands which are frequently used inside the application
+- `third it block`: This test case demonstrates how to make an HTTP POST request without interacting with the frontend using Cypress.
+    - `cy.request()` - sends a POST request to add a book. The request payload contains details about the book
+
 
 ## Setup & Installation
 1. Clone the Repository:
@@ -24,12 +32,13 @@ npm install
 ```bash
 npx cypress open
 ```
-After opening, select the desired feature file or run all tests as needed.
+After opening, select the desired .js OR
 
 5. Run a Specific Feature:
 ```bash
-npx cypress run --spec "path/to/ecommerce.feature"
+npx cypress run --spec "path_to_project/Cypress_APIHandling/cypress/integration/pageObject/HttpIntercept.js"
 ```
+This will run all the tests in headless mode
 
 
 Page Object Model
